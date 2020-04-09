@@ -23,7 +23,7 @@ const io = require('socket.io')(server);
 app.use(express.static(__dirname + '/public'));
 app.get('/', getCallback);
 io.on('connection', ioCallback);
-server.listen(serverPort, '192.168.43.178', listenCallback);
+server.listen(serverPort, listenCallback);
 
 /* ==============================
  Middleware Functions
