@@ -24,6 +24,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', getCallback);
 io.on('connection', ioCallback);
 server.listen(serverPort, listenCallback);
+// server.listen(serverPort, '192.168.43.178', listenCallback);
 
 /* ==============================
  Middleware Functions
@@ -55,11 +56,11 @@ function ioCallback(socket) {
   });
 
   socket.on('exchange', data => {
-    console.log('exchange', data.to);
+    console.log('exchange ****************', data);
 
     data.from = socket.id;
     let to = io.sockets.connected[data.to];
-    io.emit('exchange', data);
+    socket.emit('exchange', data);
   });
 
   socket.on('disconnect', () => {
