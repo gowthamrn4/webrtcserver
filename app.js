@@ -60,8 +60,8 @@ function ioCallback(socket) {
 
     data.from = socket.id;
     // let to = io.sockets.connected[data.to];
-    // socket.emit('exchange', data);
-    io.to(data.to).emit('exchange', data)
+    socket.emit('exchange', data);
+    // io.to(data.to).emit('exchange', data)
   });
 
   socket.on('disconnect', () => {
