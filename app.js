@@ -59,7 +59,7 @@ function ioCallback(socket) {
     console.log('exchange ****************', data);
 
     data.from = socket.id;
-    // let to = io.sockets.connected[data.to];
+    let to = io.sockets.connected[data.to];
     to.emit('exchange', data);
     // io.to(data.to).emit('exchange', data)
   });
