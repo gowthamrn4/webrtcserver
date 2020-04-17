@@ -60,7 +60,7 @@ function ioCallback(socket) {
 
     data.from = socket.id;
     // let to = io.sockets.connected[data.to];
-    socket.emit('exchange', data);
+    to.emit('exchange', data);
     // io.to(data.to).emit('exchange', data)
   });
 
@@ -71,7 +71,6 @@ function ioCallback(socket) {
       let room = socket.room;
       io.to(room).emit('leave', socket.id);
       socket.leave(room);
-
       console.log('leave');
     }
   });
