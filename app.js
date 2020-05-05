@@ -22,13 +22,49 @@ const io = require('socket.io')(server);
  ================================ */
 app.use(express.static(__dirname + '/public'));
 app.get('/', getCallback);
-io.on('connection', ioCallback);
+
+// io.on('connection', ioCallback);
+
 server.listen(serverPort, listenCallback);
 // server.listen(serverPort, '192.168.43.178', listenCallback);
 
 /* ==============================
  Middleware Functions
  ================================ */
+
+ io.on('connection', function (socket) {
+  console.log(socket.id + ': connected');
+  socket.on('disconnect', function () {
+    console.log('disconnect');
+    // if (socket.room) {
+    //   var room = socket.room;
+    //   io.to(room).emit('leave', socket.id);
+    //   socket.leave(room);
+    // }
+  });
+
+  // socket.on('join', function(name, callback){
+  //   console.log('join', name);
+  //   arr.push(name)
+  // });
+
+
+  // socket.on('exchange', function(data){
+  //   console.log('exchange', data);
+  //   data.from = socket.id;
+  //   var to = io.sockets.connected[data.to];
+  //   to.emit('exchange', data);
+  // });
+  socket.on('send_ID', data => {
+    console.log(data)
+    socket.broadcast.emit('receive_ID', data)
+  })
+  socket.on('send_success', data => {
+    console.log(data)
+    socket.emit('receive_success', data)
+  })
+});
+ 
 function getCallback(req, res) {
   console.log('get /');
   res.sendFile(__dirname + '/index.html');
