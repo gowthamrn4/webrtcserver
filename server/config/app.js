@@ -3,8 +3,6 @@ import compression from 'compression'
 import express from 'express'
 import helmet from 'helmet'
 import { pathConfig } from './'
-const userRouting = require('../routing/user');
-const connectDB = require("./database");
 //=====================================
 //  GLOBAL APP CONFIGURATION
 //-------------------------------------
@@ -27,7 +25,6 @@ export const appConfig = {
 		connectDB()
 		// gzip compression
 		app.use(compression())
-		app.use('/user', userRouting);
 		// static files
 		app.use(express.static(pathConfig.static, { index: false }))
 	}
