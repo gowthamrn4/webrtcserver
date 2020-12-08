@@ -2,15 +2,6 @@
   "name": "react-youtube-sync",
   "version": "1.0.0",
   "description": "A socket.io server & React client providing synchronized playback of youtube videos between multiple users",
-  "homepage": "",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "author": {
-    "name": "",
-    "email": ""
-  },
   "license": "MIT",
   "private": true,
   "engines": {
@@ -28,12 +19,6 @@
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build",
     "postinstall": "npm run build"
-  },
-  "proxy": {
-    "/socket.io": {
-      "target": "ws://localhost:3001",
-      "ws": true
-    }
   },
   "dependencies": {
     "antd": "^4.9.2",
