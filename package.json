@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "A socket.io server & React client providing synchronized playback of youtube videos between multiple users",
   "license": "MIT",
-  "private": true,
-  "engines": {
-    "node": "12.x",
-    "npm": "6.x"
-  },
   "scripts": {
     "start": "concurrently -r \"npm run start:server\" \"npm run start:client\"",
     "start:client": "react-scripts start",
