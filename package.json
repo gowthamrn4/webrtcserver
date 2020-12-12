@@ -1,53 +1,31 @@
 {
-  "name": "react-youtube-sync",
-  "version": "1.0.0",
-  "description": "A socket.io server & React client providing synchronized playback of youtube videos between multiple users",
-  "license": "MIT",
+  "name": "webrtc-server",
+  "version": "0.0.1",
+  "description": "Simple WebRTC server for Node.js",
+  "author": "Jeremy Karlsson <karlsson@jeremy.se>",
   "scripts": {
-    "start": "concurrently -r \"npm run start:server\" \"npm run start:client\"",
-    "start:client": "react-scripts start",
-    "start:server": "nodemon --require reify ./server/main.js",
-    "start-prod": "npm run start-prod:server",
-    "start-prod:server": "DEBUG=APP:MAIN cross-env NODE_ENV=production node --require reify ./server/main.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build",
-    "postinstall": "npm run build"
+    "start": "node server.js"
   },
+  "keywords": [
+    "webrtc",
+    "stream",
+    "mp3",
+    "chrome"
+  ],
+  "main": "./server.js",
+  "os": [
+    "darwin",
+    "linux"
+  ],
   "dependencies": {
-    "antd": "^4.9.2",
-    "classnames": "2.2.5",
-    "compression": "1.7.0",
-    "concurrently": "3.5.0",
-    "cross-env": "5.0.1",
-    "debug": "2.6.8",
-    "express": "4.15.3",
-    "font-awesome": "4.7.0",
-    "helmet": "3.8.1",
-    "install": "^0.13.0",
-    "jsonwebtoken": "^8.5.1",
-    "lodash": "4.17.4",
-    "mdbreact": "^5.0.1",
-    "mongoose": "^5.11.4",
-    "npm": "^5.3.0",
-    "query-string": "5.0.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-player": "^0.24.6",
-    "react-redux": "5.0.5",
-    "react-router": "3.0.5",
-    "react-scripts": "1.0.10",
-    "react-truncate": "2.1.5",
-    "redux": "3.7.2",
-    "redux-socket.io": "1.4.0",
-    "redux-thunk": "2.2.0",
-    "seamless-immutable": "7.1.2",
-    "socket.io": "2.0.3",
-    "socket.io-client": "2.0.3"
+    "express": "^4.17.1",
+    "node-uuid": ">= 1.4.x",
+    "open": "^6.4.0",
+    "socket.io": "^2.3.0"
   },
+  "license": "BSD-3-Clause",
   "devDependencies": {
-    "nodemon": "1.11.0",
-    "reify": "0.4.4"
+    "eslint": "^6.5.1",
+    "eslint-config-tidal": "^1.2.0"
   }
 }
