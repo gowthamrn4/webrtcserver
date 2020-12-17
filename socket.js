@@ -42,6 +42,20 @@ module.exports = (socket) => {
     socket.to(data.room_code).emit("stream", data);
     console.log("streaming from " + socket.id + "to room: " + data.room_code);
   });
+  /// signal get media list ///
+
+  socket.on("medialist", (data) => {
+    socket.to(data.room_code).emit("medialist", data);
+  });
+
+  /// changes media ///
+
+  socket.on("changesmedia", (data) => {
+    socket.in(data.room_code).emit("changesmedia", data);
+  });
+
+
+
   //signal viewing client
   socket.on("view", (data) => {
     socket.to(data.room_code).emit("viewing", socket.id);
